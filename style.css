@@ -19,11 +19,23 @@ body {
     background-color: var(--clr-light);
     color: var(--clr-dark);
     min-height: 100vh;
+      transition: 
+      background-color .3s, 
+      color .3s;
+}
+
+body.dark-mode {
+  background-color: var(--clr-dark);
+  color: var(--clr-light);
 }
 
 a {
   color: var(--clr-dark);
   text-decoration: none;
+}
+
+body.dark-mode a {
+  color: var(--clr-light);
 }
 
 header {
@@ -38,12 +50,20 @@ header {
   align-items: center;
 }
 
-.logo {
+.logo, .logo-dark {
   max-width: 2rem;
 }
 
 .logo-dark {
   display: none;
+}
+
+body.dark-mode .logo {
+  display: none;
+}
+
+body.dark-mode .logo-dark {
+  display: block;
 }
 
 header .sun, header .moon {
@@ -52,6 +72,14 @@ header .sun, header .moon {
 
 header .sun {
   display: none;
+}
+
+body.dark-mode .moon {
+  display: none;
+}
+
+body.dark-mode .sun {
+  display: block;
 }
 
 main {
@@ -74,13 +102,18 @@ main {
   transition: 
     background-color .2s, 
     transform .2s, 
-    box-shadow .2s;
+    box-shadow .2s,
+    color .2s;
 }
 
 .grid-item:hover {
   background-color: var(--clr-main);
   transform: scale(1.05);
   box-shadow: var(--box-shadow-expand);
+}
+
+body.dark-mode .grid-item:hover {
+  color: var(--clr-dark);
 }
 
 .grid-item p {
